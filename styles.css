@@ -7,13 +7,18 @@ body{
 }
 
 #grid-container {
+    
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     width: 400px; /* Adjust as needed */
     height: 400px; /* Adjust as needed */
-    border: 1px solid black;
+    border: 3px solid black;
+    justify-content: center;
   }
   .grid-item {
-    border: 1px solid lightgray;
-  }
+    border: 1px solid lightgray; /* Makes each grid cell visible */
+    width: 100%; /* Ensures the cell spans its allocated space */
+    height: 100%; /* Ensures the cell spans its allocated space */
+    box-sizing: border-box; /* Ensures borders don't affect sizing */
+}

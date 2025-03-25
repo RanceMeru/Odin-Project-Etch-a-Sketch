@@ -20,12 +20,24 @@ container.appendChild(paragraph);
 //make a for loop to constantly make a grid up to 16x16
 const gridContainer = document.getElementById('grid-container');
 
-for(let i = 0; i < 16 *16; i++){
+for(let i = 0; i < 256; i++){
     const gridDiv = document.createElement('div');
     gridDiv.classList.add('grid-item');
 
+    gridContainer.appendChild(gridDiv);
 
 }
+
+
+//if user presesses change grid 
+//prompt to change the grid size 
+let changeGrid = confirm('Would you like to change the grid size');
+if(changeGrid){
+    //place a function her//if user presesses change grid e 
+
+}
+//make a drop down radio??
+
 
 
 
