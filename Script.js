@@ -24,22 +24,34 @@ for(let i = 0; i < 256; i++){
     const gridDiv = document.createElement('div');
     gridDiv.classList.add('grid-item');
 
+
+    //create an eventlistener to add a hover effect
+gridDiv.addEventListener("mouseover",() =>{
+    gridDiv.style.backgroundColor = "green";
+});
     gridContainer.appendChild(gridDiv);
-
 }
 
 
-//if user presesses change grid 
-//prompt to change the grid size 
-let changeGrid = confirm('Would you like to change the grid size');
-if(changeGrid){
-    //place a function her//if user presesses change grid e 
+//create a function called size that will change 
+//eventlistener for the reset button
 
-}
-//make a drop down radio??
+const resetButton = document.getElementById('changeSize');
+
+resetButton.addEventListener("click",()=>{
+    let changeGrid = confirm('Would you like to change the grid size');
+    if(changeGrid === true){
+        let changeGrid = prompt('what size would you like the grid to be ex: 16.')
+        //place a function her//if user presesses change grid e 
+    
+    }
+});
+//limit the grid max to be 100x100 or 960px wide
+//use changeGrid to change as its being used and it will go based off what was put in
 
 
 
 
 
-//using javscript you have to make 6 grid layout on the html file 
+
+
