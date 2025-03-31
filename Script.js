@@ -1,26 +1,37 @@
 const container = document.querySelector("#container");
-
-const content = document.createElement("div");
-content.classList.add("content");
-content.textContent = "This is the glorious text-content!";
-
-container.appendChild(content);
-
-//exercise from DOM manipulation
-//makes red text in the <p>
-
-
-const paragraph = document.createElement("p");
-paragraph.textContent="Hey Im red";
-paragraph.style.color = "red";
-container.appendChild(paragraph);
-
-
-//create a 16x16 div grid
-//make a for loop to constantly make a grid up to 16x16
 const gridContainer = document.getElementById('grid-container');
 
-for(let i = 0; i < 256; i++){
+
+// const content = document.createElement("div");
+// content.classList.add("content");
+// content.textContent = "This is the glorious text-content!";
+
+// container.appendChild(content);
+
+
+
+// //exercise from DOM manipulation
+// //makes red text in the <p>
+// const paragraph = document.createElement("p");
+// paragraph.textContent="Hey Im red";
+// paragraph.style.color = "red";
+// container.appendChild(paragraph);
+
+
+
+function populateBoard(size = 16){
+
+    //this will clear the html code 
+    gridContainer.innerHTML = '';
+
+    gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    //create a 16x16 div grid
+//make a for loop to constantly make a grid up to 16x16
+
+//make the 256 a variable so it can be changed
+for(let i = 0; i < size * size; i++){
     const gridDiv = document.createElement('div');
     gridDiv.classList.add('grid-item');
 
@@ -32,22 +43,42 @@ gridDiv.addEventListener("mouseover",() =>{
     gridContainer.appendChild(gridDiv);
 }
 
+}
 
-//create a function called size that will change 
-//eventlistener for the reset button
 
-const resetButton = document.getElementById('changeSize');
+populateBoard();
 
-resetButton.addEventListener("click",()=>{
-    let changeGrid = confirm('Would you like to change the grid size');
-    if(changeGrid === true){
-        let changeGrid = prompt('what size would you like the grid to be ex: 16.')
-        //place a function her//if user presesses change grid e 
+// Change grid size function
+function changeGridSize() {
+    const resetButton = document.getElementById('changeGridSize');
     
-    }
-});
-//limit the grid max to be 100x100 or 960px wide
-//use changeGrid to change as its being used and it will go based off what was put in
+    resetButton.addEventListener("click", () => {
+        let newSize = prompt('Enter the number of squares per side (max 100):');
+        
+        // Validate input
+        newSize = parseInt(newSize);
+        if (isNaN(newSize) || newSize <= 0 || newSize > 100) {
+            alert('Please enter a valid number between 1 and 100');
+            return;
+        }
+        
+        populateBoard(newSize);
+    });
+}
+
+// Call the grid changer function
+changeGridSize();
+
+    
+
+
+
+
+
+
+
+
+
 
 
 
